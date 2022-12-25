@@ -2,7 +2,6 @@ import { ImageGalleryItem } from "../ImageGalleryItem/ImageGalleryItem"
 import css from './ImageGallery.module.css';
 
 export const ImageGallery = ({ img, onImageClick}) => {
-    console.log(img);
     return(
         <ul className={css.gallery}>
 

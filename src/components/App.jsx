@@ -23,10 +23,8 @@ export class App extends Component {
         prevState.page !== this.state.page ||
         prevState.query !== this.state.query
       ) {
-        // this.setState({ isLoading: true });
+        this.setState({ isLoading: true });
         const response = getElement(this.state.query, this.state.page);
-        console.dir(response);
-
         response.then(({ hits, total, totalHits }) => {
           this.setState(prevState => ({
             images: [...prevState.images, ...hits],
@@ -37,9 +35,12 @@ export class App extends Component {
     } catch (error) {
       this.setState({ error: error.message });
     } finally { 
-      // this.setState({ isLoading: false }) 
+      if (prevState.isLoading){
+      this.setState(prevState => {
+        return { isLoading: false }})
       }
   }
+}
 
   onFormSubmit = info => {
     this.setState({
@@ -63,7 +64,7 @@ export class App extends Component {
   };
 
   render() {
-    console.log(this.state);
+
     return (
       <>
         <Searchbar onFormSubmit={this.onFormSubmit} />
