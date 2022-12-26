@@ -1,3 +1,10 @@
+.loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
 .ldsRipple {
     display: inline-block;
     position: relative;

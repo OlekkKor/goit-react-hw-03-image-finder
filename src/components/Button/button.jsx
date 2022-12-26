@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import css from './button.module.css';
 
 
@@ -8,3 +10,9 @@ export const Button = ({ onButtonClick }) => {
     </div>
     )
 }
+
+
+
+Button.propTypes = {
+    onBtnClick: PropTypes.func,
+  };
