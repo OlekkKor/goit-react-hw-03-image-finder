@@ -28,6 +28,7 @@ export class App extends Component {
         response.then(({ hits, total, totalHits }) => {
           this.setState(prevState => ({
             images: [...prevState.images, ...hits],
+            showBtn: this.state.page < Math.ceil(totalHits / 12),
           }));
         });
       }
@@ -73,7 +74,7 @@ export class App extends Component {
           img={this.state.images}
           onImageClick={this.onImageClick}
         />
-        {this.state.images.length > 1 && (
+        {this.state.showBtn && (
           <Button onButtonClick={this.onButtonClick} />
         )}
 
